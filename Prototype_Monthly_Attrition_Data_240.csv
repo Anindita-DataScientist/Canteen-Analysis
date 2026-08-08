@@ -1,0 +1,241 @@
+Month,City,Role,EmployeesStart,AttritionBefore,AttritionAfter,EmployeesEnd
+Jan,Hyderabad,AC Technician,82,6,6,76
+Jan,Hyderabad,RF Technician,75,8,5,67
+Jan,Hyderabad,WM Technician,68,8,4,60
+Jan,Hyderabad,Helper,75,6,6,69
+Jan,Bangalore,AC Technician,110,9,9,101
+Jan,Bangalore,RF Technician,100,8,7,92
+Jan,Bangalore,WM Technician,90,9,7,81
+Jan,Bangalore,Helper,100,11,6,89
+Jan,Pune,AC Technician,55,6,3,49
+Jan,Pune,RF Technician,50,5,3,45
+Jan,Pune,WM Technician,45,4,4,41
+Jan,Pune,Helper,50,6,3,44
+Jan,Mumbai,AC Technician,138,12,11,126
+Jan,Mumbai,RF Technician,125,14,10,111
+Jan,Mumbai,WM Technician,112,12,7,100
+Jan,Mumbai,Helper,125,10,9,115
+Jan,Chennai,AC Technician,165,16,11,149
+Jan,Chennai,RF Technician,150,17,11,133
+Jan,Chennai,WM Technician,135,14,9,121
+Jan,Chennai,Helper,150,17,10,133
+Feb,Hyderabad,AC Technician,82,8,7,74
+Feb,Hyderabad,RF Technician,75,8,6,67
+Feb,Hyderabad,WM Technician,68,9,6,59
+Feb,Hyderabad,Helper,75,6,5,69
+Feb,Bangalore,AC Technician,110,11,8,99
+Feb,Bangalore,RF Technician,100,9,8,91
+Feb,Bangalore,WM Technician,90,10,6,80
+Feb,Bangalore,Helper,100,11,7,89
+Feb,Pune,AC Technician,55,6,3,49
+Feb,Pune,RF Technician,50,6,4,44
+Feb,Pune,WM Technician,45,6,3,39
+Feb,Pune,Helper,50,5,4,45
+Feb,Mumbai,AC Technician,138,12,11,126
+Feb,Mumbai,RF Technician,125,12,8,113
+Feb,Mumbai,WM Technician,112,11,8,101
+Feb,Mumbai,Helper,125,14,9,111
+Feb,Chennai,AC Technician,165,18,13,147
+Feb,Chennai,RF Technician,150,14,10,136
+Feb,Chennai,WM Technician,135,14,10,121
+Feb,Chennai,Helper,150,14,12,136
+Mar,Hyderabad,AC Technician,82,8,7,74
+Mar,Hyderabad,RF Technician,75,6,6,69
+Mar,Hyderabad,WM Technician,68,6,4,62
+Mar,Hyderabad,Helper,75,8,4,67
+Mar,Bangalore,AC Technician,110,12,7,98
+Mar,Bangalore,RF Technician,100,12,8,88
+Mar,Bangalore,WM Technician,90,7,7,83
+Mar,Bangalore,Helper,100,8,8,92
+Mar,Pune,AC Technician,55,4,4,51
+Mar,Pune,RF Technician,50,7,4,43
+Mar,Pune,WM Technician,45,4,4,41
+Mar,Pune,Helper,50,4,4,46
+Mar,Mumbai,AC Technician,138,14,10,124
+Mar,Mumbai,RF Technician,125,10,9,115
+Mar,Mumbai,WM Technician,112,11,9,101
+Mar,Mumbai,Helper,125,14,10,111
+Mar,Chennai,AC Technician,165,18,11,147
+Mar,Chennai,RF Technician,150,17,11,133
+Mar,Chennai,WM Technician,135,14,10,121
+Mar,Chennai,Helper,150,13,10,137
+Apr,Hyderabad,AC Technician,82,9,5,73
+Apr,Hyderabad,RF Technician,75,6,6,69
+Apr,Hyderabad,WM Technician,68,5,6,63
+Apr,Hyderabad,Helper,75,6,5,69
+Apr,Bangalore,AC Technician,110,10,7,100
+Apr,Bangalore,RF Technician,100,10,6,90
+Apr,Bangalore,WM Technician,90,10,6,80
+Apr,Bangalore,Helper,100,9,8,91
+Apr,Pune,AC Technician,55,4,3,51
+Apr,Pune,RF Technician,50,3,3,47
+Apr,Pune,WM Technician,45,2,3,43
+Apr,Pune,Helper,50,3,3,47
+Apr,Mumbai,AC Technician,138,13,11,125
+Apr,Mumbai,RF Technician,125,10,8,115
+Apr,Mumbai,WM Technician,112,11,8,101
+Apr,Mumbai,Helper,125,10,9,115
+Apr,Chennai,AC Technician,165,16,13,149
+Apr,Chennai,RF Technician,150,16,10,134
+Apr,Chennai,WM Technician,135,16,9,119
+Apr,Chennai,Helper,150,15,11,135
+May,Hyderabad,AC Technician,82,8,5,74
+May,Hyderabad,RF Technician,75,8,5,67
+May,Hyderabad,WM Technician,68,9,6,59
+May,Hyderabad,Helper,75,8,6,67
+May,Bangalore,AC Technician,110,13,9,97
+May,Bangalore,RF Technician,100,8,8,92
+May,Bangalore,WM Technician,90,10,5,80
+May,Bangalore,Helper,100,11,7,89
+May,Pune,AC Technician,55,6,3,49
+May,Pune,RF Technician,50,5,4,45
+May,Pune,WM Technician,45,6,3,39
+May,Pune,Helper,50,7,3,43
+May,Mumbai,AC Technician,138,15,11,123
+May,Mumbai,RF Technician,125,14,10,111
+May,Mumbai,WM Technician,112,11,9,101
+May,Mumbai,Helper,125,14,8,111
+May,Chennai,AC Technician,165,18,11,147
+May,Chennai,RF Technician,150,16,10,134
+May,Chennai,WM Technician,135,14,9,121
+May,Chennai,Helper,150,17,10,133
+Jun,Hyderabad,AC Technician,82,6,5,76
+Jun,Hyderabad,RF Technician,75,6,5,69
+Jun,Hyderabad,WM Technician,68,8,6,60
+Jun,Hyderabad,Helper,75,8,4,67
+Jun,Bangalore,AC Technician,110,13,8,97
+Jun,Bangalore,RF Technician,100,8,7,92
+Jun,Bangalore,WM Technician,90,9,7,81
+Jun,Bangalore,Helper,100,11,6,89
+Jun,Pune,AC Technician,55,8,4,47
+Jun,Pune,RF Technician,50,3,3,47
+Jun,Pune,WM Technician,45,4,4,41
+Jun,Pune,Helper,50,3,4,47
+Jun,Mumbai,AC Technician,138,15,9,123
+Jun,Mumbai,RF Technician,125,14,8,111
+Jun,Mumbai,WM Technician,112,12,8,100
+Jun,Mumbai,Helper,125,14,9,111
+Jun,Chennai,AC Technician,165,18,13,147
+Jun,Chennai,RF Technician,150,13,11,137
+Jun,Chennai,WM Technician,135,16,8,119
+Jun,Chennai,Helper,150,17,11,133
+Jul,Hyderabad,AC Technician,82,7,6,75
+Jul,Hyderabad,RF Technician,75,8,4,67
+Jul,Hyderabad,WM Technician,68,5,5,63
+Jul,Hyderabad,Helper,75,10,5,65
+Jul,Bangalore,AC Technician,110,12,7,98
+Jul,Bangalore,RF Technician,100,9,6,91
+Jul,Bangalore,WM Technician,90,8,6,82
+Jul,Bangalore,Helper,100,11,6,89
+Jul,Pune,AC Technician,55,4,4,51
+Jul,Pune,RF Technician,50,4,4,46
+Jul,Pune,WM Technician,45,2,3,43
+Jul,Pune,Helper,50,4,3,46
+Jul,Mumbai,AC Technician,138,14,11,124
+Jul,Mumbai,RF Technician,125,14,9,111
+Jul,Mumbai,WM Technician,112,10,9,102
+Jul,Mumbai,Helper,125,14,10,111
+Jul,Chennai,AC Technician,165,14,11,151
+Jul,Chennai,RF Technician,150,14,10,136
+Jul,Chennai,WM Technician,135,12,10,123
+Jul,Chennai,Helper,150,17,12,133
+Aug,Hyderabad,AC Technician,82,6,6,76
+Aug,Hyderabad,RF Technician,75,8,5,67
+Aug,Hyderabad,WM Technician,68,8,4,60
+Aug,Hyderabad,Helper,75,10,6,65
+Aug,Bangalore,AC Technician,110,11,9,99
+Aug,Bangalore,RF Technician,100,12,6,88
+Aug,Bangalore,WM Technician,90,10,6,80
+Aug,Bangalore,Helper,100,8,7,92
+Aug,Pune,AC Technician,55,6,5,49
+Aug,Pune,RF Technician,50,6,3,44
+Aug,Pune,WM Technician,45,2,2,43
+Aug,Pune,Helper,50,5,4,45
+Aug,Mumbai,AC Technician,138,14,10,124
+Aug,Mumbai,RF Technician,125,14,10,111
+Aug,Mumbai,WM Technician,112,10,7,102
+Aug,Mumbai,Helper,125,10,8,115
+Aug,Chennai,AC Technician,165,16,11,149
+Aug,Chennai,RF Technician,150,17,10,133
+Aug,Chennai,WM Technician,135,12,9,123
+Aug,Chennai,Helper,150,17,11,133
+Sep,Hyderabad,AC Technician,82,10,6,72
+Sep,Hyderabad,RF Technician,75,8,4,67
+Sep,Hyderabad,WM Technician,68,6,6,62
+Sep,Hyderabad,Helper,75,8,4,67
+Sep,Bangalore,AC Technician,110,13,7,97
+Sep,Bangalore,RF Technician,100,9,6,91
+Sep,Bangalore,WM Technician,90,8,6,82
+Sep,Bangalore,Helper,100,9,8,91
+Sep,Pune,AC Technician,55,6,3,49
+Sep,Pune,RF Technician,50,5,3,45
+Sep,Pune,WM Technician,45,6,2,39
+Sep,Pune,Helper,50,3,4,47
+Sep,Mumbai,AC Technician,138,14,11,124
+Sep,Mumbai,RF Technician,125,14,8,111
+Sep,Mumbai,WM Technician,112,11,7,101
+Sep,Mumbai,Helper,125,12,8,113
+Sep,Chennai,AC Technician,165,18,11,147
+Sep,Chennai,RF Technician,150,14,12,136
+Sep,Chennai,WM Technician,135,14,9,121
+Sep,Chennai,Helper,150,16,10,134
+Oct,Hyderabad,AC Technician,82,6,5,76
+Oct,Hyderabad,RF Technician,75,8,6,67
+Oct,Hyderabad,WM Technician,68,9,4,59
+Oct,Hyderabad,Helper,75,6,6,69
+Oct,Bangalore,AC Technician,110,10,9,100
+Oct,Bangalore,RF Technician,100,9,6,91
+Oct,Bangalore,WM Technician,90,10,7,80
+Oct,Bangalore,Helper,100,8,8,92
+Oct,Pune,AC Technician,55,4,3,51
+Oct,Pune,RF Technician,50,6,4,44
+Oct,Pune,WM Technician,45,4,2,41
+Oct,Pune,Helper,50,5,4,45
+Oct,Mumbai,AC Technician,138,12,10,126
+Oct,Mumbai,RF Technician,125,10,9,115
+Oct,Mumbai,WM Technician,112,12,7,100
+Oct,Mumbai,Helper,125,12,10,113
+Oct,Chennai,AC Technician,165,16,12,149
+Oct,Chennai,RF Technician,150,16,12,134
+Oct,Chennai,WM Technician,135,12,10,123
+Oct,Chennai,Helper,150,14,11,136
+Nov,Hyderabad,AC Technician,82,10,7,72
+Nov,Hyderabad,RF Technician,75,8,6,67
+Nov,Hyderabad,WM Technician,68,6,4,62
+Nov,Hyderabad,Helper,75,10,6,65
+Nov,Bangalore,AC Technician,110,11,8,99
+Nov,Bangalore,RF Technician,100,8,7,92
+Nov,Bangalore,WM Technician,90,11,5,79
+Nov,Bangalore,Helper,100,11,6,89
+Nov,Pune,AC Technician,55,8,3,47
+Nov,Pune,RF Technician,50,4,4,46
+Nov,Pune,WM Technician,45,2,3,43
+Nov,Pune,Helper,50,5,4,45
+Nov,Mumbai,AC Technician,138,14,10,124
+Nov,Mumbai,RF Technician,125,12,9,113
+Nov,Mumbai,WM Technician,112,13,9,99
+Nov,Mumbai,Helper,125,12,9,113
+Nov,Chennai,AC Technician,165,18,13,147
+Nov,Chennai,RF Technician,150,16,11,134
+Nov,Chennai,WM Technician,135,16,10,119
+Nov,Chennai,Helper,150,17,12,133
+Dec,Hyderabad,AC Technician,82,10,7,72
+Dec,Hyderabad,RF Technician,75,10,4,65
+Dec,Hyderabad,WM Technician,68,8,5,60
+Dec,Hyderabad,Helper,75,6,6,69
+Dec,Bangalore,AC Technician,110,12,8,98
+Dec,Bangalore,RF Technician,100,12,8,88
+Dec,Bangalore,WM Technician,90,11,7,79
+Dec,Bangalore,Helper,100,8,7,92
+Dec,Pune,AC Technician,55,6,4,49
+Dec,Pune,RF Technician,50,5,4,45
+Dec,Pune,WM Technician,45,6,2,39
+Dec,Pune,Helper,50,5,4,45
+Dec,Mumbai,AC Technician,138,13,11,125
+Dec,Mumbai,RF Technician,125,12,9,113
+Dec,Mumbai,WM Technician,112,11,7,101
+Dec,Mumbai,Helper,125,12,10,113
+Dec,Chennai,AC Technician,165,18,12,147
+Dec,Chennai,RF Technician,150,15,12,135
+Dec,Chennai,WM Technician,135,14,10,121
+Dec,Chennai,Helper,150,14,12,136
