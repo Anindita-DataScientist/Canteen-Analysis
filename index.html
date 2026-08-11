@@ -1,0 +1,1716 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <base target="_top">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>RentoMojo Workforce Analytics</title>
+
+  <!-- GOOGLE CHARTS -->
+  <script src="https://www.gstatic.com/charts/loader.js"></script>
+
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+
+    body {
+      background: #f5f7f8;
+      color: #17202a;
+      padding: 24px;
+    }
+
+
+    .dashboard {
+      max-width: 1400px;
+      margin: auto;
+    }
+
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    .header {
+      background: white;
+      border-radius: 16px;
+      padding: 22px 28px;
+      margin-bottom: 20px;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+
+    .logo {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+
+      background: #ff5a1f;
+      color: white;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+
+    .title h1 {
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+
+    .title p {
+      color: #7b8794;
+      font-size: 13px;
+      margin-top: 4px;
+    }
+
+
+    .status {
+      font-size: 13px;
+      color: #16855b;
+      background: #e9f8f1;
+
+      padding: 8px 14px;
+      border-radius: 20px;
+    }
+
+
+    /* =========================
+       FILTERS
+    ========================= */
+
+    .filters {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+
+    select {
+      background: white;
+
+      border: 1px solid #dfe4e8;
+      border-radius: 10px;
+
+      padding: 10px 14px;
+
+      min-width: 180px;
+
+      font-size: 13px;
+      color: #344054;
+
+      outline: none;
+    }
+
+
+    /* =========================
+       KPI
+    ========================= */
+
+    .kpis {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+
+      gap: 16px;
+
+      margin-bottom: 20px;
+    }
+
+
+    .kpi {
+      background: white;
+
+      padding: 20px;
+
+      border-radius: 14px;
+
+      box-shadow:
+        0 2px 10px rgba(0,0,0,0.04);
+    }
+
+
+    .kpi-label {
+      color: #7b8794;
+      font-size: 13px;
+
+      margin-bottom: 10px;
+    }
+
+
+    .kpi-value {
+      font-size: 27px;
+      font-weight: 700;
+    }
+
+
+    .kpi-change {
+      font-size: 12px;
+
+      color: #16855b;
+
+      margin-top: 7px;
+    }
+
+
+    /* =========================
+       GRID
+    ========================= */
+
+    .grid {
+
+      display: grid;
+
+      grid-template-columns:
+        1fr 1.5fr;
+
+      gap: 18px;
+
+      margin-bottom: 18px;
+    }
+
+
+    .card {
+
+      background: white;
+
+      border-radius: 14px;
+
+      padding: 20px;
+
+      box-shadow:
+        0 2px 10px rgba(0,0,0,0.04);
+    }
+
+
+    .card h2 {
+
+      font-size: 16px;
+
+      margin-bottom: 5px;
+    }
+
+
+    .card-subtitle {
+
+      font-size: 12px;
+
+      color: #8a96a3;
+
+      margin-bottom: 12px;
+    }
+
+
+    /* =========================
+       CHART CONTAINERS
+    ========================= */
+
+    .chart-container {
+
+      width: 100%;
+
+      height: 300px;
+    }
+
+
+    /* =========================
+       MATRIX
+    ========================= */
+
+    .full-width {
+
+      margin-bottom: 18px;
+    }
+
+
+    .matrix {
+
+      width: 100%;
+
+      border-collapse: collapse;
+
+      margin-top: 12px;
+    }
+
+
+    .matrix th,
+    .matrix td {
+
+      padding: 12px;
+
+      text-align: center;
+
+      border-bottom:
+        1px solid #edf0f2;
+
+      font-size: 12px;
+    }
+
+
+    .matrix th {
+
+      background: #f8fafb;
+
+      font-weight: 600;
+    }
+
+
+    .matrix td:first-child,
+    .matrix th:first-child {
+
+      text-align: left;
+    }
+
+
+    .heat-low {
+
+      background: #f4faf7;
+    }
+
+
+    .heat-medium {
+
+      background: #fff1eb;
+    }
+
+
+    .heat-high {
+
+      background: #ffd8ca;
+
+      font-weight: bold;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    .footer {
+
+      text-align: center;
+
+      font-size: 11px;
+
+      color: #98a2b3;
+
+      padding: 10px;
+    }
+
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 900px) {
+
+      .kpis {
+
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+
+      .grid {
+
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+
+    @media (max-width: 600px) {
+
+      body {
+
+        padding: 12px;
+      }
+
+
+      .kpis {
+
+        grid-template-columns: 1fr;
+      }
+
+
+      .header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+      }
+
+
+      .filters {
+
+        flex-direction: column;
+      }
+
+
+      select {
+
+        width: 100%;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<div class="dashboard">
+
+
+  <!-- =========================
+       HEADER
+  ========================= -->
+
+  <div class="header">
+
+
+    <div class="brand">
+
+
+      <div class="logo">
+        R
+      </div>
+
+
+      <div class="title">
+
+        <h1>
+          Workforce Analytics
+        </h1>
+
+        <p>
+          Canteen & Employee Retention Dashboard
+        </p>
+
+      </div>
+
+
+    </div>
+
+
+    <div class="status">
+      ● Live Dashboard
+    </div>
+
+
+  </div>
+
+
+
+  <!-- =========================
+       FILTERS
+  ========================= -->
+
+  <div class="filters">
+
+
+    <select id="cityFilter">
+
+      <option value="All">
+        All Cities
+      </option>
+
+    </select>
+
+
+    <select id="roleFilter">
+
+      <option value="All">
+        All Roles
+      </option>
+
+    </select>
+
+
+  </div>
+
+
+
+  <!-- =========================
+       KPI CARDS
+  ========================= -->
+
+  <div class="kpis">
+
+
+    <div class="kpi">
+
+      <div class="kpi-label">
+        Total Workforce
+      </div>
+
+      <div
+        class="kpi-value"
+        id="totalEmployees">
+
+        Loading...
+
+      </div>
+
+      <div class="kpi-change">
+        Across 5 cities
+      </div>
+
+    </div>
+
+
+
+    <div class="kpi">
+
+      <div class="kpi-label">
+        Current Attrition
+      </div>
+
+      <div
+        class="kpi-value"
+        id="currentAttrition">
+
+        Loading...
+
+      </div>
+
+      <div class="kpi-change">
+        Before canteen
+      </div>
+
+    </div>
+
+
+
+    <div class="kpi">
+
+      <div class="kpi-label">
+        Post-Canteen Attrition
+      </div>
+
+      <div
+        class="kpi-value"
+        id="postAttrition">
+
+        Loading...
+
+      </div>
+
+      <div class="kpi-change">
+        After intervention
+      </div>
+
+    </div>
+
+
+
+    <div class="kpi">
+
+      <div class="kpi-label">
+        Attrition Reduction
+      </div>
+
+      <div
+        class="kpi-value"
+        id="attritionReduction">
+
+        Loading...
+
+      </div>
+
+      <div class="kpi-change">
+        Positive movement
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+
+  <!-- =========================
+       ROW 1
+  ========================= -->
+
+  <div class="grid">
+
+
+    <!-- WORKFORCE -->
+
+    <div class="card">
+
+      <h2>
+        Workforce Distribution
+      </h2>
+
+      <div class="card-subtitle">
+        Employee distribution across cities
+      </div>
+
+      <div
+        id="workforceChart"
+        class="chart-container">
+      </div>
+
+    </div>
+
+
+
+    <!-- MONTHLY ATTRITION -->
+
+    <div class="card">
+
+      <h2>
+        Monthly Attrition Trend
+      </h2>
+
+      <div class="card-subtitle">
+        Before vs. after canteen intervention
+      </div>
+
+      <div
+        id="monthlyChart"
+        class="chart-container">
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+
+  <!-- =========================
+       ROW 2
+  ========================= -->
+
+  <div class="grid">
+
+
+    <!-- CITY ATTRITION -->
+
+    <div class="card">
+
+      <h2>
+        City-wise Attrition
+      </h2>
+
+      <div class="card-subtitle">
+        Before vs. after intervention
+      </div>
+
+      <div
+        id="cityChart"
+        class="chart-container">
+      </div>
+
+    </div>
+
+
+
+    <!-- ROLE ATTRITION -->
+
+    <div class="card">
+
+      <h2>
+        Role-wise Attrition
+      </h2>
+
+      <div class="card-subtitle">
+        Attrition by employee role
+      </div>
+
+      <div
+        id="roleChart"
+        class="chart-container">
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+
+  <!-- =========================
+       MATRIX
+  ========================= -->
+
+  <div class="card full-width">
+
+
+    <h2>
+      City × Role Attrition
+    </h2>
+
+
+    <div class="card-subtitle">
+
+      Identify high-attrition city and role combinations
+
+    </div>
+
+
+    <div id="matrixContainer">
+
+      Loading matrix...
+
+    </div>
+
+
+  </div>
+
+
+
+  <div class="footer">
+
+    Workforce Analytics • RentoMojo Prototype
+
+  </div>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+  /* ============================================
+     GOOGLE CHARTS
+  ============================================ */
+
+  google.charts.load(
+    "current",
+    {
+      packages: ["corechart"]
+    }
+  );
+
+
+  google.charts.setOnLoadCallback(
+    loadDashboard
+  );
+
+
+
+  /* ============================================
+     GLOBAL DATA
+  ============================================ */
+
+  let dashboardData = null;
+
+
+
+  /* ============================================
+     LOAD DATA FROM APPS SCRIPT
+  ============================================ */
+
+  function loadDashboard() {
+
+
+    google.script.run
+
+      .withSuccessHandler(
+        function(data) {
+
+          console.log(
+            "Dashboard data:",
+            data
+          );
+
+
+          dashboardData = data;
+
+
+          populateFilters(data);
+
+
+          updateKPIs(data);
+
+
+          drawAllCharts(data);
+
+
+          buildMatrix(data);
+
+
+        }
+      )
+
+      .withFailureHandler(
+        function(error) {
+
+          console.error(error);
+
+          alert(
+            "Unable to load dashboard data. " +
+            "Please check Apps Script."
+          );
+
+        }
+      )
+
+      .getDashboardData();
+
+  }
+
+
+
+  /* ============================================
+     POPULATE FILTERS
+  ============================================ */
+
+  function populateFilters(data) {
+
+
+    const cityFilter =
+      document.getElementById(
+        "cityFilter"
+      );
+
+
+    const roleFilter =
+      document.getElementById(
+        "roleFilter"
+      );
+
+
+    const cities =
+      Object.keys(
+        data.cityWorkforce
+      );
+
+
+    cities.forEach(
+      function(city) {
+
+        const option =
+          document.createElement(
+            "option"
+          );
+
+        option.value = city;
+
+        option.textContent = city;
+
+        cityFilter.appendChild(
+          option
+        );
+
+      }
+    );
+
+
+    const roles = [];
+
+
+    data.matrix.forEach(
+      function(item) {
+
+        if (
+          !roles.includes(
+            item.role
+          )
+        ) {
+
+          roles.push(
+            item.role
+          );
+
+        }
+
+      }
+    );
+
+
+    roles.forEach(
+      function(role) {
+
+        const option =
+          document.createElement(
+            "option"
+          );
+
+        option.value = role;
+
+        option.textContent = role;
+
+        roleFilter.appendChild(
+          option
+        );
+
+      }
+    );
+
+
+    cityFilter.addEventListener(
+      "change",
+      applyFilters
+    );
+
+
+    roleFilter.addEventListener(
+      "change",
+      applyFilters
+    );
+
+  }
+
+
+
+  /* ============================================
+     KPI
+  ============================================ */
+
+  function updateKPIs(data) {
+
+
+    document
+      .getElementById(
+        "totalEmployees"
+      )
+      .textContent =
+
+      Number(
+        data.totalEmployees
+      ).toLocaleString();
+
+
+
+    document
+      .getElementById(
+        "currentAttrition"
+      )
+      .textContent =
+
+      Number(
+        data.currentAttrition
+      ).toFixed(2) + "%";
+
+
+
+    document
+      .getElementById(
+        "postAttrition"
+      )
+      .textContent =
+
+      Number(
+        data.postCanteenAttrition
+      ).toFixed(2) + "%";
+
+
+
+    document
+      .getElementById(
+        "attritionReduction"
+      )
+      .textContent =
+
+      Number(
+        data.attritionReduction
+      ).toFixed(2) + " pp";
+
+  }
+
+
+
+  /* ============================================
+     DRAW ALL CHARTS
+  ============================================ */
+
+  function drawAllCharts(data) {
+
+
+    drawWorkforceChart(
+      data
+    );
+
+
+    drawMonthlyChart(
+      data
+    );
+
+
+    drawCityChart(
+      data
+    );
+
+
+    drawRoleChart(
+      data
+    );
+
+  }
+
+
+
+  /* ============================================
+     WORKFORCE DONUT
+  ============================================ */
+
+  function drawWorkforceChart(
+    data
+  ) {
+
+
+    const chartData =
+      new google.visualization.DataTable();
+
+
+    chartData.addColumn(
+      "string",
+      "City"
+    );
+
+
+    chartData.addColumn(
+      "number",
+      "Employees"
+    );
+
+
+    Object.keys(
+      data.cityWorkforce
+    ).forEach(
+      function(city) {
+
+        chartData.addRow(
+          [
+            city,
+            Number(
+              data.cityWorkforce[
+                city
+              ]
+            )
+          ]
+        );
+
+      }
+    );
+
+
+    const options = {
+
+      pieHole: 0.62,
+
+      legend: {
+        position: "right",
+        textStyle: {
+          fontSize: 11
+        }
+      },
+
+      chartArea: {
+        left: 10,
+        top: 10,
+        width: "90%",
+        height: "90%"
+      },
+
+      pieSliceText:
+        "percentage",
+
+      fontName:
+        "Arial",
+
+      tooltip: {
+        text: "percentage"
+      }
+
+    };
+
+
+    const chart =
+      new google.visualization.PieChart(
+        document.getElementById(
+          "workforceChart"
+        )
+      );
+
+
+    chart.draw(
+      chartData,
+      options
+    );
+
+  }
+
+
+
+  /* ============================================
+     MONTHLY ATTRITION
+  ============================================ */
+
+  function drawMonthlyChart(
+    data
+  ) {
+
+
+    const chartData =
+      new google.visualization.DataTable();
+
+
+    chartData.addColumn(
+      "string",
+      "Month"
+    );
+
+
+    chartData.addColumn(
+      "number",
+      "Before"
+    );
+
+
+    chartData.addColumn(
+      "number",
+      "After"
+    );
+
+
+    data.monthlyAttrition.forEach(
+      function(item) {
+
+        chartData.addRow(
+          [
+            String(item.month),
+
+            Number(item.before),
+
+            Number(item.after)
+
+          ]
+        );
+
+      }
+    );
+
+
+    const options = {
+
+      legend: {
+        position: "top"
+      },
+
+      curveType: "function",
+
+      pointSize: 5,
+
+      lineWidth: 3,
+
+      chartArea: {
+        left: 60,
+        top: 35,
+        width: "82%",
+        height: "75%"
+      },
+
+      vAxis: {
+
+        title:
+          "Attrition %",
+
+        format:
+          "0.0"
+
+      },
+
+      hAxis: {
+
+        textStyle: {
+          fontSize: 10
+        }
+
+      },
+
+      fontName:
+        "Arial",
+
+      backgroundColor:
+        "transparent"
+
+    };
+
+
+    const chart =
+      new google.visualization.LineChart(
+        document.getElementById(
+          "monthlyChart"
+        )
+      );
+
+
+    chart.draw(
+      chartData,
+      options
+    );
+
+  }
+
+
+
+  /* ============================================
+     CITY ATTRITION
+  ============================================ */
+
+  function drawCityChart(
+    data
+  ) {
+
+
+    const chartData =
+      new google.visualization.DataTable();
+
+
+    chartData.addColumn(
+      "string",
+      "City"
+    );
+
+
+    chartData.addColumn(
+      "number",
+      "Before"
+    );
+
+
+    chartData.addColumn(
+      "number",
+      "After"
+    );
+
+
+    data.cityAttrition.forEach(
+      function(item) {
+
+        chartData.addRow(
+          [
+            item.city,
+
+            Number(
+              item.before
+            ),
+
+            Number(
+              item.after
+            )
+
+          ]
+        );
+
+      }
+    );
+
+
+    const options = {
+
+      legend: {
+        position: "top"
+      },
+
+      chartArea: {
+        left: 55,
+        top: 35,
+        width: "82%",
+        height: "70%"
+      },
+
+      vAxis: {
+
+        title:
+          "Attrition %",
+
+        format:
+          "0.0"
+
+      },
+
+      hAxis: {
+
+        textStyle: {
+          fontSize: 10
+        }
+
+      },
+
+      fontName:
+        "Arial",
+
+      backgroundColor:
+        "transparent"
+
+    };
+
+
+    const chart =
+      new google.visualization.ColumnChart(
+        document.getElementById(
+          "cityChart"
+        )
+      );
+
+
+    chart.draw(
+      chartData,
+      options
+    );
+
+  }
+
+
+
+  /* ============================================
+     ROLE ATTRITION
+  ============================================ */
+
+  function drawRoleChart(
+    data
+  ) {
+
+
+    const chartData =
+      new google.visualization.DataTable();
+
+
+    chartData.addColumn(
+      "string",
+      "Role"
+    );
+
+
+    chartData.addColumn(
+      "number",
+      "Before"
+    );
+
+
+    chartData.addColumn(
+      "number",
+      "After"
+    );
+
+
+    data.roleAttrition.forEach(
+      function(item) {
+
+        chartData.addRow(
+          [
+            item.role,
+
+            Number(
+              item.before
+            ),
+
+            Number(
+              item.after
+            )
+
+          ]
+        );
+
+      }
+    );
+
+
+    const options = {
+
+      legend: {
+        position: "top"
+      },
+
+      chartArea: {
+        left: 55,
+        top: 35,
+        width: "82%",
+        height: "70%"
+      },
+
+      vAxis: {
+
+        title:
+          "Attrition %",
+
+        format:
+          "0.0"
+
+      },
+
+      hAxis: {
+
+        textStyle: {
+          fontSize: 10
+        }
+
+      },
+
+      fontName:
+        "Arial",
+
+      backgroundColor:
+        "transparent"
+
+    };
+
+
+    const chart =
+      new google.visualization.ColumnChart(
+        document.getElementById(
+          "roleChart"
+        )
+      );
+
+
+    chart.draw(
+      chartData,
+      options
+    );
+
+  }
+
+
+
+  /* ============================================
+     CITY × ROLE MATRIX
+  ============================================ */
+
+  function buildMatrix(
+    data
+  ) {
+
+
+    const container =
+      document.getElementById(
+        "matrixContainer"
+      );
+
+
+    const roles = [];
+
+
+    data.matrix.forEach(
+      function(item) {
+
+        if (
+          !roles.includes(
+            item.role
+          )
+        ) {
+
+          roles.push(
+            item.role
+          );
+
+        }
+
+      }
+    );
+
+
+    const cities = [];
+
+
+    data.matrix.forEach(
+      function(item) {
+
+        if (
+          !cities.includes(
+            item.city
+          )
+        ) {
+
+          cities.push(
+            item.city
+          );
+
+        }
+
+      }
+    );
+
+
+    let html =
+
+      '<table class="matrix">';
+
+
+    html += "<thead><tr>";
+
+    html +=
+      "<th>City</th>";
+
+
+    roles.forEach(
+      function(role) {
+
+        html +=
+          "<th>" +
+          role +
+          "</th>";
+
+      }
+    );
+
+
+    html +=
+      "</tr></thead>";
+
+
+    html +=
+      "<tbody>";
+
+
+    cities.forEach(
+      function(city) {
+
+        html += "<tr>";
+
+        html +=
+          "<td>" +
+          city +
+          "</td>";
+
+
+        roles.forEach(
+          function(role) {
+
+
+            const item =
+              data.matrix.find(
+                function(x) {
+
+                  return (
+                    x.city === city &&
+                    x.role === role
+                  );
+
+                }
+              );
+
+
+            if (item) {
+
+              const value =
+                Number(
+                  item.attrition
+                );
+
+
+              let cssClass =
+                "heat-low";
+
+
+              if (
+                value >= 10.5
+              ) {
+
+                cssClass =
+                  "heat-high";
+
+              }
+
+              else if (
+                value >= 10
+              ) {
+
+                cssClass =
+                  "heat-medium";
+
+              }
+
+
+              html +=
+
+                '<td class="' +
+                cssClass +
+                '">' +
+
+                value.toFixed(2) +
+
+                "%</td>";
+
+            }
+
+            else {
+
+              html +=
+                "<td>—</td>";
+
+            }
+
+          }
+        );
+
+
+        html +=
+          "</tr>";
+
+      }
+    );
+
+
+    html +=
+      "</tbody></table>";
+
+
+    container.innerHTML =
+      html;
+
+  }
+
+
+
+  /* ============================================
+     FILTERS
+  ============================================ */
+function applyFilters() {
+
+  const city =
+    document.getElementById(
+      "cityFilter"
+    ).value;
+
+  const role =
+    document.getElementById(
+      "roleFilter"
+    ).value;
+
+
+  // Show loading state
+
+  document.getElementById(
+    "totalEmployees"
+  ).textContent = "Loading...";
+
+
+  document.getElementById(
+    "currentAttrition"
+  ).textContent = "Loading...";
+
+
+  document.getElementById(
+    "postAttrition"
+  ).textContent = "Loading...";
+
+
+  document.getElementById(
+    "attritionReduction"
+  ).textContent = "Loading...";
+
+
+  // Request filtered data
+  // from Apps Script
+
+  google.script.run
+
+    .withSuccessHandler(
+      function(data) {
+
+        dashboardData =
+          data;
+
+
+        updateKPIs(
+          data
+        );
+
+
+        drawAllCharts(
+          data
+        );
+
+
+        buildMatrix(
+          data
+        );
+
+      }
+    )
+
+    .withFailureHandler(
+      function(error) {
+
+        console.error(
+          error
+        );
+
+        alert(
+          "Unable to apply filter."
+        );
+
+      }
+    )
+
+    .getDashboardData(
+      city,
+      role
+    );
+
+}
+
+
+
+  /* ============================================
+     RESPONSIVE CHART RESIZE
+  ============================================ */
+
+  window.addEventListener(
+    "resize",
+    function() {
+
+      if (
+        dashboardData
+      ) {
+
+        drawAllCharts(
+          dashboardData
+        );
+
+      }
+
+    }
+  );
+
+
+</script>
+
+
+</body>
+
+</html>
